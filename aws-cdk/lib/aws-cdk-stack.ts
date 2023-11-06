@@ -7,14 +7,7 @@ export class MyShopAppStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // Create a new S3 bucket
     const bucket = new s3.Bucket(this, "MyShopAppBucket", {
-      blockPublicAccess: new s3.BlockPublicAccess({
-        blockPublicAcls: false,
-        ignorePublicAcls: false,
-        blockPublicPolicy: false,
-        restrictPublicBuckets: false,
-      }),
       versioned: true,
       bucketName: "rs-aws-shop",
       websiteIndexDocument: "index.html",
@@ -59,12 +52,15 @@ export class MyShopAppStack extends cdk.Stack {
       }
     );
 
-    // Deploy site contents to S3 bucket
     new s3deploy.BucketDeployment(this, "DeployWithInvalidation", {
       sources: [s3deploy.Source.asset("../dist")],
       destinationBucket: bucket,
       distribution,
       distributionPaths: ["/*"],
+    });
+
+    new cdk.CfnOutput(this, "DistributionDomainName", {
+      value: distribution.distributionDomainName,
     });
   }
 }
