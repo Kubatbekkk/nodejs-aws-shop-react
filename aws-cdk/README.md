@@ -1,7 +1,9 @@
 # Welcome RS-AWS-Shop CDK TypeScript project
 
-[**S3 origin:**](https://rs-aws-shop.s3.us-east-1.amazonaws.com/)
-[**Cloudfront:**](https://d1k2bkc4kshwu.cloudfront.net/)
+## Links
+
+[**S3 origin**](https://rs-aws-shop.s3.us-east-1.amazonaws.com/) |
+[**Cloudfront**](https://d1k2bkc4kshwu.cloudfront.net/)
 
 ## Useful commands
 
