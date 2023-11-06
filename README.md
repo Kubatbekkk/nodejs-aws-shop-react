@@ -1,6 +1,6 @@
 ## Links To Deployment
 
-[**S3 origin**](https://rs-aws-shop.s3.us-east-1.amazonaws.com/) |  [**Cloudfront**](https://d1k2bkc4kshwu.cloudfront.net/)
+[**S3 origin**](https://rs-aws-shop.s3.us-east-1.amazonaws.com/){:target="_blank"} |  [**Cloudfront**](https://d1k2bkc4kshwu.cloudfront.net/){:target="_blank"}
 
 # React-shop-cloudfront
 
