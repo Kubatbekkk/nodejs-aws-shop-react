@@ -48,7 +48,7 @@ export class MyShopAppStack extends cdk.Stack {
 
     // Deploy site contents to S3 bucket
     new s3deploy.BucketDeployment(this, "DeployWithInvalidation", {
-      sources: [s3deploy.Source.asset("../nodejs-aws-shop-react/dist")], // Update the directory accordingly
+      sources: [s3deploy.Source.asset("../dist")],
       destinationBucket: bucket,
       distribution,
       distributionPaths: ["/*"],
