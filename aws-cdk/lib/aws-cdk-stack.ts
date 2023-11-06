@@ -9,11 +9,17 @@ export class MyShopAppStack extends cdk.Stack {
 
     // Create a new S3 bucket
     const bucket = new s3.Bucket(this, "MyShopAppBucket", {
-      versioned: false,
-      bucketName: "rs-cloud-shop-bucket",
+      blockPublicAccess: new s3.BlockPublicAccess({
+        blockPublicAcls: false,
+        ignorePublicAcls: false,
+        blockPublicPolicy: false,
+        restrictPublicBuckets: false,
+      }),
+      versioned: true,
+      bucketName: "rs-aws-shop",
       websiteIndexDocument: "index.html",
       websiteErrorDocument: "index.html",
-      publicReadAccess: true,
+      publicReadAccess: false,
     });
 
     const originAccessIdentity = new cloudfront.OriginAccessIdentity(
@@ -33,7 +39,14 @@ export class MyShopAppStack extends cdk.Stack {
               s3BucketSource: bucket,
               originAccessIdentity,
             },
-            behaviors: [{ isDefaultBehavior: true, compress: false }],
+            behaviors: [
+              {
+                isDefaultBehavior: true,
+                viewerProtocolPolicy:
+                  cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+                compress: false,
+              },
+            ],
           },
         ],
         errorConfigurations: [
