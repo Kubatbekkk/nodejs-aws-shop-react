@@ -21,7 +21,6 @@ export class MyShopAppStack extends cdk.Stack {
     );
     bucket.grantRead(originAccessIdentity);
 
-    // Create a CloudFront distribution for the S3 bucket
     const distribution = new cloudfront.CloudFrontWebDistribution(
       this,
       "MyShopAppDistribution",
