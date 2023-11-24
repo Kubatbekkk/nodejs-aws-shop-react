@@ -1,6 +1,7 @@
 ## Links To Deployment
 
-**S3 origin**: http://rs-aws-shop.s3-website-us-east-1.amazonaws.com/ | **Cloudfront**: d2161gi96a21og.cloudfront.net/
+**S3 origin**: http://rs-aws-shop.s3-website-us-east-1.amazonaws.com/ <br/>
+**Cloudfront**: http://d2161gi96a21og.cloudfront.net/
 
 =======
 **To see the completed task, change branch to `task-2` and go to `aws-cdk` directory**
