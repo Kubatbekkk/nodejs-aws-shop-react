@@ -33,7 +33,7 @@ if (import.meta.env.DEV) {
 }
 
 if (!localStorage.getItem("authorization_token")) {
-  localStorage.setItem("authorization_token", "Kubatbekkk:TEST_PASSWORD");
+  localStorage.setItem("authorization_token", "S3ViYXRiZWtrazpURVNUX1BBU1NXT1JE");
 }
 
 const container = document.getElementById("app");
