@@ -35,7 +35,7 @@ export class MyShopAppStack extends cdk.Stack {
               {
                 isDefaultBehavior: true,
                 viewerProtocolPolicy:
-                  cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+                  cloudfront.ViewerProtocolPolicy.ALLOW_ALL,
                 compress: false,
               },
             ],
