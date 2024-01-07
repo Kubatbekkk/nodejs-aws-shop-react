@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { formatAsPrice } from "~/utils/utils";
 import AddProductToCart from "~/components/AddProductToCart/AddProductToCart";
 import { useAvailableProducts } from "~/queries/products";
+import Chip from "@mui/material/Chip";
 
 export default function Products() {
   const { data = [], isLoading } = useAvailableProducts();
@@ -25,7 +26,9 @@ export default function Products() {
           >
             <CardMedia
               sx={{ pt: "56.25%" }}
-              image={`https://source.unsplash.com/random?sig=${index}`}
+              image={
+                product.image ? product.image : `https://source.unsplash.com/random?sig=${index}`
+              }
               title="Image title"
             />
             <CardContent sx={{ flexGrow: 1 }}>
@@ -33,6 +36,7 @@ export default function Products() {
                 {product.title}
               </Typography>
               <Typography>{formatAsPrice(product.price)}</Typography>
+              <Chip label={`count: ${count}`} />
             </CardContent>
             <CardActions>
               <AddProductToCart product={product} />

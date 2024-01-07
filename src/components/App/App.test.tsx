@@ -18,6 +18,7 @@ test("Renders products list", async () => {
       description: "Product 1 description",
       price: 1,
       count: 1,
+      image: "https://source.unsplash.com/random?sig=1"
     },
     {
       id: "2",
@@ -25,6 +26,7 @@ test("Renders products list", async () => {
       description: "Product 2 description",
       price: 2,
       count: 2,
+      image: "https://source.unsplash.com/random?sig=2"
     },
   ];
   server.use(
@@ -35,7 +37,7 @@ test("Renders products list", async () => {
         ctx.json<AvailableProduct[]>(products)
       );
     }),
-    rest.get(`${API_PATHS.cart}/profile/cart`, (req, res, ctx) => {
+    rest.get(`${API_PATHS.cart}/cart`, (req, res, ctx) => {
       return res(ctx.status(200), ctx.json<CartItem[]>([]));
     })
   );
